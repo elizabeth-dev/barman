@@ -117,6 +117,7 @@ class S3CloudInterface(CloudInterface):
         delete_batch_size=None,
         read_timeout=None,
         sse_kms_key_id=None,
+        storage_class=None
     ):
         """
         Create a new S3 interface given the S3 destination url and the profile
@@ -147,6 +148,7 @@ class S3CloudInterface(CloudInterface):
         self.endpoint_url = endpoint_url
         self.read_timeout = read_timeout
         self.sse_kms_key_id = sse_kms_key_id
+        self.storage_class = storage_class
 
         # Extract information from the destination URL
         parsed_url = urlparse(url)
@@ -188,6 +190,8 @@ class S3CloudInterface(CloudInterface):
             additional_args["ServerSideEncryption"] = self.encryption
         if self.sse_kms_key_id:
             additional_args["SSEKMSKeyId"] = self.sse_kms_key_id
+        if self.storage_class:
+            additional_args["StorageClass"] = self.storage_class
         return additional_args
 
     def test_connectivity(self):

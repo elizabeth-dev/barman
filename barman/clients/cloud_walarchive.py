@@ -217,6 +217,12 @@ def parse_arguments(args=None):
         "in S3. Can be specified using the key ID on its own or using the full ARN for "
         "the key. Only allowed if `-e/--encryption` is set to `aws:kms`.",
     )
+    s3_arguments.add_argument(
+        "--aws-storage-class",
+        help="The storage class to use for S3 objects",
+        choices=["STANDARD","REDUCED_REDUNDANCY","STANDARD_IA","ONEZONE_IA","INTELLIGENT_TIERING","GLACIER","DEEP_ARCHIVE","OUTPOSTS","GLACIER_IR","SNOW","EXPRESS_ONEZONE"],
+        default="STANDARD",
+    )
     azure_arguments.add_argument(
         "--encryption-scope",
         help="The name of an encryption scope defined in the Azure Blob Storage "

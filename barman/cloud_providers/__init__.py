@@ -52,6 +52,8 @@ def _make_s3_cloud_interface(config, cloud_interface_kwargs):
             "read_timeout": config.read_timeout,
         }
     )
+    if "aws_storage_class" in config:
+        cloud_interface_kwargs["storage_class"] = config.aws_storage_class
     if "encryption" in config:
         cloud_interface_kwargs["encryption"] = config.encryption
     if "sse_kms_key_id" in config:

@@ -30,6 +30,7 @@ venv/*
 /dist
 /build
 /barman.egg-info
+/elizabeth_dev_barman.egg-info
 
 # OSX
 .DS_Store

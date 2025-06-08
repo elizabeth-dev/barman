@@ -52,7 +52,7 @@ with open("barman/version.py", "r", encoding="utf-8") as fversion:
     exec(fversion.read(), barman)
 
 setup(
-    name="barman",
+    name="elizabeth-dev_barman",
     version=barman["__version__"],
     author="EnterpriseDB",
     author_email="barman@enterprisedb.com",

@@ -429,6 +429,12 @@ def parse_arguments(args=None):
         "defined by the --snapshot-instance and --snapshot-disk arguments.",
     )
     s3_arguments.add_argument(
+        "--aws-storage-class",
+        help="The storage class to use for S3 objects",
+        choices=["STANDARD","REDUCED_REDUNDANCY","STANDARD_IA","ONEZONE_IA","INTELLIGENT_TIERING","GLACIER","DEEP_ARCHIVE","OUTPOSTS","GLACIER_IR","SNOW","EXPRESS_ONEZONE"],
+        default="STANDARD",
+    )
+    s3_arguments.add_argument(
         "--aws-await-snapshots-timeout",
         default=3600,
         help="The length of time in seconds to wait for snapshots to be created in AWS before "
